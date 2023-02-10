@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide}
+\usepackage{dsfont}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{ mathrsfs}
+\usepackage{setspace} \doublespacing
+\title{MV notes}
+\author{Om Swostik Mishra}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+\textbf{Cantor set($\mathscr{C}$)}:     
+
+$C_0=[0,1]$
+
+$C_1=[0,1]-(\frac{1}{3},\frac{2}{3})$ and so on (Basically, keep removing the middle one third)
+
+$\mathscr{C}=\overset{\infty}{\underset{i=0}{\bigcap}} \mathcal{C}_i$
+
+(I) $\mathscr{C}\neq \phi$
+
+(II) $\mathscr{C}$ is closed (hence, compact)
+
+(III) $\mathscr{C}$ has length 0
+
+(IV) $\mathscr{C}$ is totally disconnected
+
+\textbf{Exercise}: Can you characterize the elements of $\mathscr{C}$?
+
+\textbf{Integration}:
+
+\underline{\textbf{In one variable}}:
+
+\textbf{Definition}: A partition $P$ of $[a,b]\subset\mathds{R}$ is a collection $t_0=a\leq t_1\dots \leq t_k=b$
+
+Rectangle in $\mathds{R}^n$: $[a_1,b_1]\times [a_2,b_2]\dots \times[a_n,b_n]=A$
+
+If $P_i$ is a partition of $[a_i,b_i]$, $P=(P_1,P_2,\dots P_n)$ is a partition of $A$.
+
+$f:A\rightarrow \mathds{R}$ is a bounded function. ($P$ is a partition of $A$)
+
+If $S=$ rectangle in $P$, $m_S(f)=\inf_{x\in S} f(x)$, $M_S(f)=\sup_{x\in S} f(x)$
+
+$L(f,P)=\sum_{S\in P}^{} m_S(f)\nu(S)$
+
+$U(f,P)=\sum_{S\in P}^{} M_S(f)\nu(S)$  ($\nu(S)=$ volume of $S$)
+
+$L(f,P)\leq U(f,P)$ 
+
+If $P$ and $P{'}$ are partitions, $P^{'}$ is said to be an refinement of $P$ if any subrectangle $S^{'}$ in $P^{'}$ is contained in contained in some subrectangle $S$ in $P$.
+
+If $P=(P_1,P_2\dots P_n)$ and $Q=(Q_1,Q_2\dots Q_n)$, then
+
+$\mathcal{T}=(P_1\cup Q_1,\dots ,P_n\cup Q_n)$ is a refinement of both $P$ and $Q$.
+
+\textbf{Proposition}: If $P^{'}$ is a refinement of $P$, then $L(f,P)\leq L(f,P^{'})\leq U(f,P^{'})\leq U(f,P)$.
+
+If $S^{'}\in P^{'}$, then $S^{'}\subseteq S$ for some $S\in P$, $m_{S^{'}}(f)\geq m_S(f)$, $M_{S^{'}}\leq M_S(f)$
+
+$S=\overset{m}{\underset{i=1}{\bigcup}} S_i^{'}$, $S_i^{'}\in P^{'}$
+
+$\sum_{i=1}^{m} m_{S^{'}}(f).\nu(S^{'})\geq \sum_{i=1}^{m} m_S(f).\nu(S^{'})=m_S(f)\sum_{i=1}^{m} \nu(S_i^{'})=m_S(f) \nu(S)$
+
+Summing up, $L(f,P^{'})\geq L(f,P)$
+
+Similarly, $U(f,P^{'})\leq U(f,P)$
+
+\textbf{Corollary}: If $P$ and $P^{'}$ are any two partitions: $L(f,P^{'})\leq U(f,P)$
+
+Take $Q=$ common refinement of $P$, $P^{'}$.
+
+Then, $L(f,P^{'})\leq L(f,Q) \leq U(f,Q) \leq U(f,P)$ 
+
+$\sup_{P} L(f,P)\leq \inf_{P^{'}} U(f,P^{'})$
+
+$f: A\rightarrow \mathds{R}$: a bounded function is said to be integrable if $\sup_{P} L(f,P)=\inf_{P} U(f,P)$
+
+Value is denoted as $\int_{A}^{} f$
+
+\textbf{Propositon}: $f$ is integrable $\Leftrightarrow$ $\forall \epsilon >0$,
+$\exists$ a partition $P$ such that, $U(f,P)-L(f,P)<\epsilon$ 
+
+\textbf{Theorem}: Let $f:A \rightarrow \mathds{R}$ be a bounded function on a closed rectangle $A$. Then $f$ is integrable on $A$ iff the set $B= \{x: f \: \text{is discontinuous at}\: x\}$ has measure 0.
+
+\textbf{Definition}: A set $S\subseteq \mathds{R}^n$ is said to have measure 0 if given $\epsilon>0$ there exists a sequence of closed rectangles $Q_1,Q_2\dots Q_n$, such that $S\subseteq \overset{\infty}{\underset{i=0}{\bigcup}} Q_i$ and $\sum_{i=1}^{\infty} \nu(Q_i)<\epsilon$
+
+\textbf{Exercise}: 
+
+(I) If $\{A_i\}_1^{\infty}$ is a countable collection of measure zero sets,then $\overset{\infty}{\underset{i=0}{\bigcup}} A_i$ has measure zero.
+
+(II)$\mathscr{C}$ has measure zero
+
+\textbf{Definition}: A set $A\subseteq \mathds{R}^n$ is said to have content 0, if given $\epsilon>0$, there exists a finite collection of closed rectangles $Q_1,Q_2 \dots Q_n$ such that $\sum_{i=1}^{n} \nu(Q_i) <\epsilon$
+
+content 0 $\Rightarrow$ measure 0 
+
+\textbf{Theorem}: measure 0 $\Rightarrow$ content 0 if $A$ is compact 
+
+\textbf{Proposition}: If $a<b$, then $S=[a,b]$ doesn't have measure zero.  
+
+Proof(Sketch): Let $S\subseteq \overset{\infty}{\underset{i=0}{\bigcup}} Q_i$
+
+$\sum_{}^{} \nu(Q_i) \geq (b-a)$
+
+\end{flushleft}
+\end{document}    
